@@ -1,3 +1,27 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#07141f"><title>Mothbound — The Drowned Bell</title><link rel="stylesheet" href="style.css"></head>
-<body><canvas id="game" aria-label="Mothbound action platformer"></canvas><div id="hud"><div id="life"></div><div class="thread"><i id="soul"></i></div><span id="embers">0 embers</span></div><button id="pause" aria-label="Pause game">Ⅱ</button><div id="place"></div><div id="hint"></div><div id="boss"><span>The Bellwarden</span><div><i></i></div></div><main id="menu"><div class="ornament">✧</div><p class="subtitle">The drowned bell</p><h1>Mothbound</h1><p id="intro">Beneath the quiet water, a forgotten kingdom still dreams.<br>Carry its last light into the dark.</p><button id="start">Enter the hush</button><button id="continue" hidden>Continue journey</button><p class="controls">A D / ← → move &nbsp; · &nbsp; Space jump &nbsp; · &nbsp; J strike<br>K / Shift dash &nbsp; · &nbsp; Hold L heal &nbsp; · &nbsp; E rest &nbsp; · &nbsp; Esc pause</p><p class="footnote">An original little metroidvania · Headphones recommended</p></main><div id="touch"><div><button data-key="ArrowLeft">◀</button><button data-key="ArrowRight">▶</button></div><div><button data-key="KeyL">Heal</button><button data-key="KeyK">Dash</button><button data-key="KeyJ">Strike</button><button data-key="Space">Jump</button><button data-key="KeyE">Rest</button></div></div><script type="module" src="game.js"></script></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#07141f"><meta name="description" content="An atmospheric hand-painted adventure. Carry the last light through a drowned cathedral.">
+  <title>Mothbound — The Drowned Bell</title>
+  <link rel="preload" href="assets/cathedral.webp" as="image"><link rel="stylesheet" href="visual.css?v=2">
+</head>
+<body>
+  <canvas id="game" aria-label="Mothbound action platformer. Keyboard controls are listed in the menu."></canvas>
+  <div id="hud"><div id="life" aria-label="6 of 6 health"></div><div class="thread" title="Soul · strike to replenish"><i id="soul"></i></div><span id="embers">0 embers</span></div>
+  <nav id="toolbar" aria-label="Game controls"><button id="map">Atlas <kbd>M</kbd></button><button id="mute" aria-pressed="false">Sound on</button><button id="pause" aria-label="Pause game">Ⅱ</button></nav>
+  <div id="place"></div><div id="hint" aria-live="polite"></div>
+  <div id="boss"><span id="boss-name">The Bellwarden</span><div><i></i></div></div>
+  <main id="menu">
+    <svg class="crest" viewBox="0 0 200 74" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.2"><path d="M100 43C74 5 36 17 14 7C29 31 50 55 91 51M100 43C126 5 164 17 186 7C171 31 150 55 109 51M100 45C80 38 56 49 43 65C67 60 79 69 99 51M100 45C120 38 144 49 157 65C133 60 121 69 101 51M100 20V61M100 29Q84 10 91 4M100 29Q116 10 109 4"/><path d="M92 44L100 33L108 44L100 55Z"/></g></svg>
+    <p class="subtitle">The drowned bell</p><h1>Mothbound</h1>
+    <p id="intro">Beneath the quiet water, a forgotten kingdom still dreams.<br>Carry its last light into the dark.</p>
+    <button id="start">Enter the hush</button><button id="continue" hidden>Continue journey</button>
+    <p class="controls">A D / ← → move &nbsp; · &nbsp; Space jump twice &nbsp; · &nbsp; J strike &nbsp; · &nbsp; K dash<br>↑ / ↓ + J aim sword &nbsp; · &nbsp; F cast &nbsp; · &nbsp; Hold L heal &nbsp; · &nbsp; E interact &nbsp; · &nbsp; M atlas</p>
+    <p class="footnote">An original little metroidvania · Headphones recommended</p>
+  </main>
+  <section id="panel" role="dialog" aria-modal="true" aria-labelledby="panel-title" hidden><div class="panel-inner"><p class="subtitle">Mothbound</p><h2 id="panel-title"></h2><p id="panel-copy"></p><div id="panel-content"></div><button id="close-panel">Return to the journey <kbd>Esc</kbd></button></div></section>
+  <div id="touch"><div><button data-key="ArrowLeft" aria-label="Move left">◀</button><button data-key="ArrowRight" aria-label="Move right">▶</button><button data-key="ArrowDown" aria-label="Aim sword down">↓</button><button data-key="ArrowUp" aria-label="Aim sword up">↑</button></div><div><button data-key="KeyE">Talk</button><button data-key="KeyL">Heal</button><button data-key="KeyF">Cast</button><button data-key="KeyK">Dash</button><button data-key="KeyJ">Strike</button><button data-key="Space">Jump</button></div></div>
+  <script src="engine.js?v=2" defer></script><script src="renderer.js?v=2" defer></script>
+</body>
+</html>
